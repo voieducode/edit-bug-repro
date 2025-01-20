@@ -122,7 +122,8 @@ export async function action({ request }: ActionFunctionArgs) {
 		},
 	})
 
-	return redirect(
-		`/users/${updatedNote.owner.username}/notes/${updatedNote.id}`,
+	return data(
+		{ result: submission.reply({ resetForm: true }) },
+		{ status: 200 },
 	)
 }

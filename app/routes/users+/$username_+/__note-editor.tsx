@@ -59,7 +59,7 @@ export function NoteEditor({
 	const isPending = useIsPending()
 
 	const [form, fields] = useForm({
-		id: 'note-editor',
+		id: 'note-editor-' + (note?.id ?? 'new'),
 		constraint: getZodConstraint(NoteEditorSchema),
 		lastResult: actionData?.result,
 		onValidate({ formData }) {
@@ -90,6 +90,7 @@ export function NoteEditor({
 					<button type="submit" className="hidden" />
 					{note ? <input type="hidden" name="id" value={note.id} /> : null}
 					<div className="flex flex-col gap-1">
+						<Label>{form.dirty ? 'DIRTY' : 'CLEAN'}</Label>
 						<Field
 							labelProps={{ children: 'Title' }}
 							inputProps={{

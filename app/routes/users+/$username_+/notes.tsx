@@ -64,7 +64,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
 							{loaderData.owner.notes.map((note) => (
 								<li key={note.id} className="p-1 pr-0">
 									<NavLink
-										to={note.id}
+										to={note.id + '/edit'}
 										preventScrollReset
 										prefetch="intent"
 										className={({ isActive }) =>
